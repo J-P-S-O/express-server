@@ -1,20 +1,8 @@
 const express = require('express')
 const app = express()
-app.use(function(req, res, next){
-  try{
-  if (path.isDirectory(req.path)){
-    res.write("Dir requested")
-    return;
-  }else{
-    next()
-  }
-
-}catch(e){
-  res.write(String(e))
-  return;
-}
-})// the server
+let lib = require("./lib")
+app.use(lib.existent)// the server
 app.use(express.static('.'))
-app.listen(80, () => {
+app.listen(3000, () => {
   console.log('listening')
 })
