@@ -1,8 +1,10 @@
-const express = require('express')
-var argv = require("minimist")(process.argv)
+import express from 'express' 
+import minimist from  "minimist"
+let argv = minimist(process.argv)
 const app = express()
-let lib = require("./lib")
-app.use(lib.existent)// the server
+import { existent, dir  } from "./lib.mjs"
+app.use(existent)// the server
+app.use(dir)
 app.use(express.static('.'))
 
 app.listen(argv.port || 3000, () => {
