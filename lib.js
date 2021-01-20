@@ -18,3 +18,7 @@ exports.existent =  function(req, res, next ){
         }
     }
 }
+exports.dir = function(req, res, next){
+    let { isDirectory } = require("path")
+    if (req.path)
+}
